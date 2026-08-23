@@ -1,0 +1,7 @@
+{
+  "name": "IsoCity",
+  "description": "Isometric city-building simulation game featuring dynamic transit systems, zoned urban development, citizen pathfinding, and interactive real-time management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
