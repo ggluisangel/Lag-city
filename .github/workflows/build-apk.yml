@@ -10,6 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    # Cambia 'nombre-de-tu-carpeta' por el nombre real de la carpeta de tu proyecto
+    defaults:
+      run:
+        working-directory: ./nombre-de-tu-carpeta
+
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
@@ -30,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Lag-city-APK
-          path: app/build/outputs/apk/debug/*.apk
+          path: nombre-de-tu-carpeta/app/build/outputs/apk/debug/*.apk
