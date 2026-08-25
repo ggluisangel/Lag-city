@@ -10,11 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Cambia 'nombre-de-tu-carpeta' por el nombre real de la carpeta de tu proyecto
-    defaults:
-      run:
-        working-directory: ./nombre-de-tu-carpeta
-
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
@@ -25,14 +20,14 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Dar permisos a Gradle
-        run: chmod +x ./gradlew
+      - name: Configurar Gradle
+        uses: gradle/actions/setup-gradle@v3
 
       - name: Compilar APK
-        run: ./gradlew assembleDebug
+        run: gradle assembleDebug
 
       - name: Guardar APK
         uses: actions/upload-artifact@v4
         with:
           name: Lag-city-APK
-          path: nombre-de-tu-carpeta/app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
