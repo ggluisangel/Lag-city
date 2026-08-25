@@ -28,7 +28,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Compilar APK
-        run: gradle assembleDebug -Djava.awt.headless=true
+        env:
+          GRADLE_OPTS: "-Djava.awt.headless=true"
+          JAVA_TOOL_OPTIONS: "-Djava.awt.headless=true"
+        run: gradle assembleDebug --no-daemon
 
       - name: Guardar APK
         uses: actions/upload-artifact@v4
